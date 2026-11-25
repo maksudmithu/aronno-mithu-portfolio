@@ -237,11 +237,23 @@ footer p{font-size:14.5px;max-width:420px}
 .footer-brand .brand-text b{color:#fff}
 .footer-brand .brand-text span{color:#9FB0C7}
 
-/* Equal-height service cards */
-.services-grid{display:grid;grid-template-columns:1fr;grid-auto-rows:1fr;gap:22px}
-.services-grid .service{margin-bottom:0;height:100%;display:flex;flex-direction:column}
-.services-grid .svc-cols{flex:1}
-.services-grid .tools{margin-top:auto}
+/* Equal-height service cards: uniform grid, same visible content per card */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:22px;align-items:stretch}
+.services-grid .service{margin-bottom:0;height:100%;display:flex;flex-direction:column;padding:26px}
+.services-grid .svc-title{min-width:0}
+.services-grid .svc-title h3{font-size:clamp(20px,2.2vw,23px)}
+.svc-intro{color:var(--muted);font-size:16px;margin-bottom:16px}
+.svc-keys{margin-bottom:18px}
+.svc-details{margin-top:auto;border-top:1px dashed var(--line);padding-top:14px}
+.svc-details summary{cursor:pointer;font-family:"Sora",sans-serif;font-weight:700;font-size:15.5px;color:var(--teal-dark);list-style:none;display:flex;align-items:center;min-height:32px}
+.svc-details summary::-webkit-details-marker{display:none}
+.svc-details summary::after{content:"+";margin-left:auto;font-size:22px;color:var(--teal);font-weight:400;padding-left:12px}
+.svc-details[open ] summary::after{content:"−"}
+.svc-full-intro{color:var(--muted);font-size:15.5px;margin-top:12px}
+.svc-details .svc-cols{grid-template-columns:1fr;gap:20px;margin-top:18px}
+.svc-details .tools{margin-top:18px}
+@media(max-width:1024px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.services-grid{grid-template-columns:1fr}}
 .help-grid{align-items:stretch}
 .help-card{height:100%}
 .process-grid{align-items:stretch}
@@ -387,16 +399,24 @@ footer a:hover{transform:translateX(3px)}
     </div>
 
     <div class="services-grid">
-    <!-- SERVICE 1 -->
     <article class="service featured" id="service-1">
       <div class="service-top">
         <span class="svc-num">1</span>
         <div class="svc-title">
           <h3>Facebook &amp; Instagram Lead Generation Funnel</h3>
-          <p>My core service. A complete Facebook lead generation ads and Instagram lead generation system that collects leads and helps you turn them into booked appointments, automatically.</p>
         </div>
       </div>
-      <div class="svc-cols">
+      <p class="svc-intro">A complete lead generation system on Facebook and Instagram that collects leads and turns them into booked appointments, automatically.</p>
+      <ul class="tick-list svc-keys">
+            <li><span class="check">✓</span> Facebook Business Page created and professionally optimized</li>
+            <li><span class="check">✓</span> Lead-magnet guide PDF matched to your niche</li>
+            <li><span class="check">✓</span> Lead generation ads on Facebook &amp; Instagram</li>
+            <li><span class="check">✓</span> Instant email automation with your meeting link</li>
+      </ul>
+      <details class="svc-details">
+        <summary>View details</summary>
+        <p class="svc-full-intro">My core service. A complete Facebook lead generation ads and Instagram lead generation system that collects leads and helps you turn them into booked appointments, automatically.</p>
+        <div class="svc-cols">
         <div>
           <h4>What I Do</h4>
           <ul class="tick-list">
@@ -429,20 +449,29 @@ footer a:hover{transform:translateX(3px)}
             <li><span class="check">✓</span> Appointment setting support and a lead-tracking CRM sheet</li>
           </ul>
         </div>
-      </div>
-      <div class="tools"><b>Tools:</b><span class="tool">Meta Ads Manager</span><span class="tool">Meta Business Suite</span><span class="tool">Facebook Business Manager</span><span class="tool">Email Automation</span><span class="tool">Google Sheets CRM</span><span class="tool">Calendly</span></div>
+        </div>
+        <div class="tools"><b>Tools:</b><span class="tool">Meta Ads Manager</span><span class="tool">Meta Business Suite</span><span class="tool">Facebook Business Manager</span><span class="tool">Email Automation</span><span class="tool">Google Sheets CRM</span><span class="tool">Calendly</span></div>
+      </details>
     </article>
 
-    <!-- SERVICE 2 -->
     <article class="service" id="service-2">
       <div class="service-top">
         <span class="svc-num">2</span>
         <div class="svc-title">
           <h3>LinkedIn Manual Outreach</h3>
-          <p>Personal, manual LinkedIn outreach done from your own account, no bots, no spam blasts. Real conversations with the exact audience you want to reach.</p>
         </div>
       </div>
-      <div class="svc-cols">
+      <p class="svc-intro">Personal, manual LinkedIn outreach from your own account. Real conversations with the exact audience you want to reach, with no bots and no spam.</p>
+      <ul class="tick-list svc-keys">
+            <li><span class="check">✓</span> Targeted audience list built with Sales Navigator</li>
+            <li><span class="check">✓</span> Connection invitations sent from your account</li>
+            <li><span class="check">✓</span> Messages, reply management and follow-ups handled</li>
+            <li><span class="check">✓</span> LinkedIn profile optimization included</li>
+      </ul>
+      <details class="svc-details">
+        <summary>View details</summary>
+        <p class="svc-full-intro">Personal, manual LinkedIn outreach done from your own account, no bots, no spam blasts. Real conversations with the exact audience you want to reach.</p>
+        <div class="svc-cols">
         <div>
           <h4>What I Do</h4>
           <ul class="tick-list">
@@ -473,20 +502,29 @@ footer a:hover{transform:translateX(3px)}
             <li><span class="check">✓</span> Optimized LinkedIn profile that supports the outreach</li>
           </ul>
         </div>
-      </div>
-      <div class="tools"><b>Tools:</b><span class="tool">LinkedIn Sales Navigator</span><span class="tool">LinkedIn</span><span class="tool">Google Sheets CRM</span><span class="tool">Calendly</span></div>
+        </div>
+        <div class="tools"><b>Tools:</b><span class="tool">LinkedIn Sales Navigator</span><span class="tool">LinkedIn</span><span class="tool">Google Sheets CRM</span><span class="tool">Calendly</span></div>
+      </details>
     </article>
 
-    <!-- SERVICE 3 -->
     <article class="service" id="service-3">
       <div class="service-top">
         <span class="svc-num">3</span>
         <div class="svc-title">
           <h3>Cold Email Outreach</h3>
-          <p>Targeted cold email outreach that reaches decision-makers directly in their inbox, with researched lists, written-for-you sequences and consistent follow-up.</p>
         </div>
       </div>
-      <div class="svc-cols">
+      <p class="svc-intro">Targeted cold email that reaches decision-makers directly in their inbox, with researched lists, written sequences and consistent follow-up.</p>
+      <ul class="tick-list svc-keys">
+            <li><span class="check">✓</span> Prospect list with name, email, company and details</li>
+            <li><span class="check">✓</span> Cold email copy and full sequence written for you</li>
+            <li><span class="check">✓</span> Campaign run in segments, replies managed for you</li>
+            <li><span class="check">✓</span> Follow-up emails for everyone who has not replied</li>
+      </ul>
+      <details class="svc-details">
+        <summary>View details</summary>
+        <p class="svc-full-intro">Targeted cold email outreach that reaches decision-makers directly in their inbox, with researched lists, written-for-you sequences and consistent follow-up.</p>
+        <div class="svc-cols">
         <div>
           <h4>What I Do</h4>
           <ul class="tick-list">
@@ -517,20 +555,29 @@ footer a:hover{transform:translateX(3px)}
             <li><span class="check">✓</span> Follow-up emails for everyone who has not replied</li>
           </ul>
         </div>
-      </div>
-      <div class="tools"><b>Tools:</b><span class="tool">Email Outreach Platform</span><span class="tool">Google Sheets</span><span class="tool">Prospect Research Tools</span><span class="tool">CRM Tracking Sheet</span></div>
+        </div>
+        <div class="tools"><b>Tools:</b><span class="tool">Email Outreach Platform</span><span class="tool">Google Sheets</span><span class="tool">Prospect Research Tools</span><span class="tool">CRM Tracking Sheet</span></div>
+      </details>
     </article>
 
-    <!-- SERVICE 4 -->
     <article class="service" id="service-4">
       <div class="service-top">
         <span class="svc-num">4</span>
         <div class="svc-title">
           <h3>Animation Ads and Motion Graphics Ads</h3>
-          <p>I make Animation Ads and Motion Graphics Ads for businesses that need a short video ad. You can order the ad on its own, or I can make the ad and launch it for you on Facebook.</p>
         </div>
       </div>
-      <div class="svc-cols">
+      <p class="svc-intro">Short video ads that explain your offer clearly: 2D Animation Ads and Motion Graphics Ads, ready to publish or launched on Facebook for you.</p>
+      <ul class="tick-list svc-keys">
+            <li><span class="check">✓</span> 2D Animation Ads: explainer, story and promotional styles</li>
+            <li><span class="check">✓</span> Motion Graphics Ads from text, icons, images and branding</li>
+            <li><span class="check">✓</span> Script and scene plan included with every ad</li>
+            <li><span class="check">✓</span> Optional Facebook launch once the video is ready</li>
+      </ul>
+      <details class="svc-details">
+        <summary>View details</summary>
+        <p class="svc-full-intro">I make Animation Ads and Motion Graphics Ads for businesses that need a short video ad. You can order the ad on its own, or I can make the ad and launch it for you on Facebook.</p>
+        <div class="svc-cols">
         <div>
           <h4>What I Do</h4>
           <ul class="tick-list">
@@ -560,20 +607,29 @@ footer a:hover{transform:translateX(3px)}
             <li><span class="check">✓</span> Optional: your ad launched as a Facebook campaign, set up by me</li>
           </ul>
         </div>
-      </div>
-      <div class="tools"><b>Tools:</b><span class="tool">2D Animation Software</span><span class="tool">Motion Graphics / Video Editing Tools</span><span class="tool">AI Video Tools</span><span class="tool">Meta Ads Manager</span></div>
+        </div>
+        <div class="tools"><b>Tools:</b><span class="tool">2D Animation Software</span><span class="tool">Motion Graphics / Video Editing Tools</span><span class="tool">AI Video Tools</span><span class="tool">Meta Ads Manager</span></div>
+      </details>
     </article>
 
-    <!-- SERVICE 5 -->
     <article class="service" id="service-5">
       <div class="service-top">
         <span class="svc-num">5</span>
         <div class="svc-title">
           <h3>Content &amp; Social Media Management</h3>
-          <p>I plan, write, design and publish your content each month: 30 posts and 10 Reels. Your Facebook Page and Instagram account stay active, and people who find you through an ad or a message see a business that posts regularly and looks established.</p>
         </div>
       </div>
-      <div class="svc-cols">
+      <p class="svc-intro">Monthly content planned, written, designed and published for you, so your profiles stay active and your business looks established.</p>
+      <ul class="tick-list svc-keys">
+            <li><span class="check">✓</span> 30 content posts and 10 Reels videos every month</li>
+            <li><span class="check">✓</span> Facebook Page and Instagram account management</li>
+            <li><span class="check">✓</span> Monthly content calendar, planned and scheduled</li>
+            <li><span class="check">✓</span> Designed graphics, captions and hashtags included</li>
+      </ul>
+      <details class="svc-details">
+        <summary>View details</summary>
+        <p class="svc-full-intro">I plan, write, design and publish your content each month: 30 posts and 10 Reels. Your Facebook Page and Instagram account stay active, and people who find you through an ad or a message see a business that posts regularly and looks established.</p>
+        <div class="svc-cols">
         <div>
           <h4>What I Do</h4>
           <ul class="tick-list">
@@ -604,20 +660,29 @@ footer a:hover{transform:translateX(3px)}
             <li><span class="check">✓</span> Posts and Reels published on schedule all month, with no gaps</li>
           </ul>
         </div>
-      </div>
-      <div class="tools"><b>Tools:</b><span class="tool">Meta Business Suite</span><span class="tool">Content Scheduling Tools</span><span class="tool">AI Content &amp; Image Tools</span><span class="tool">Design Tools</span></div>
+        </div>
+        <div class="tools"><b>Tools:</b><span class="tool">Meta Business Suite</span><span class="tool">Content Scheduling Tools</span><span class="tool">AI Content &amp; Image Tools</span><span class="tool">Design Tools</span></div>
+      </details>
     </article>
 
-    <!-- SERVICE 6 -->
     <article class="service" id="service-6">
       <div class="service-top">
         <span class="svc-num">6</span>
         <div class="svc-title">
           <h3>Website, Landing Page &amp; Google Setup</h3>
-          <p>I build the page your ads and outreach send people to: a personal website or landing page with your services, a contact form, WhatsApp and a booking link. I also set up your Google page with your correct business details so local clients can find you.</p>
         </div>
       </div>
-      <div class="svc-cols">
+      <p class="svc-intro">The page your ads and outreach send people to: a website or landing page with booking built in, plus your Google page set up properly.</p>
+      <ul class="tick-list svc-keys">
+            <li><span class="check">✓</span> Personal website, business website or landing page built</li>
+            <li><span class="check">✓</span> Contact form, WhatsApp and booking link connected</li>
+            <li><span class="check">✓</span> Website and landing page copywriting included</li>
+            <li><span class="check">✓</span> Google page set up and optimized for local clients</li>
+      </ul>
+      <details class="svc-details">
+        <summary>View details</summary>
+        <p class="svc-full-intro">I build the page your ads and outreach send people to: a personal website or landing page with your services, a contact form, WhatsApp and a booking link. I also set up your Google page with your correct business details so local clients can find you.</p>
+        <div class="svc-cols">
         <div>
           <h4>What I Do</h4>
           <ul class="tick-list">
@@ -648,8 +713,9 @@ footer a:hover{transform:translateX(3px)}
             <li><span class="check">✓</span> Ongoing VA and client-management support if you need it</li>
           </ul>
         </div>
-      </div>
-      <div class="tools"><b>Tools:</b><span class="tool">AI-Assisted Web Development (Vibe Coding)</span><span class="tool">Netlify</span><span class="tool">GitHub</span><span class="tool">Google Business Tools</span><span class="tool">Calendly</span><span class="tool">WhatsApp</span></div>
+        </div>
+        <div class="tools"><b>Tools:</b><span class="tool">AI-Assisted Web Development (Vibe Coding)</span><span class="tool">Netlify</span><span class="tool">GitHub</span><span class="tool">Google Business Tools</span><span class="tool">Calendly</span><span class="tool">WhatsApp</span></div>
+      </details>
     </article>
     </div>
   </div>
